@@ -61,6 +61,7 @@
   #
   # Secure Boot dependencies
   #
+  PlatformPKProtectionLib|SecurityPkg/Library/PlatformPKProtectionLibVarPolicy/PlatformPKProtectionLibVarPolicy.inf
 
   # Cryptographic libraries
   RngLib|MdePkg/Library/DxeRngLib/DxeRngLib.inf
