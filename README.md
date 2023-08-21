@@ -55,30 +55,12 @@ sudo apt upgrade
 sudo apt install build-essential uuid-dev iasl git nasm gcc-aarch64-linux-gnu python3-distutils python3-pil python3-git gettext
 ```
 
-If you are using GCC 11+, modify `edk2/BaseTools/Source/C/Makefiles/header.makefile`
-
-```diff
-diff --git a/BaseTools/Source/C/Makefiles/header.makefile b/BaseTools/Source/C/Makefiles/header.makefile
-index 0df728f..247c917 100644
---- a/BaseTools/Source/C/Makefiles/header.makefile
-+++ b/BaseTools/Source/C/Makefiles/header.makefile
-@@ -92,7 +92,7 @@ BUILD_CFLAGS = -MD -fshort-wchar -fno-strict-aliasing -fwrapv \
- -Wno-unused-result -nostdlib -g
- else
- BUILD_CFLAGS = -MD -fshort-wchar -fno-strict-aliasing -fwrapv \
---fno-delete-null-pointer-checks -Wall -Werror \
-+-fno-delete-null-pointer-checks -Wall \^M
- -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict \
- -Wno-unused-result -nostdlib -g
- endif
-```
-
 ## Building
 
 1.Clone this project
 
 ```bash
-git clone https://github.com/edk2-porting/edk2-sdm845.git --depth=1
+git clone https://github.com/qaz6750/edk2-sdm845.git --depth=1
 cd edk2-sdm845
 ```
 
