@@ -1,9 +1,9 @@
-[submodule "edk2"]
-	path = edk2
-	url = https://github.com/tianocore/edk2.git
 [submodule "edk2-platforms"]
 	path = edk2-platforms
 	url = https://github.com/tianocore/edk2-platforms.git
 [submodule "sdm845Pkg/Library/SimpleInit"]
 	path = sdm845Pkg/Library/SimpleInit
 	url = https://github.com/BigfootACA/simple-init.git
+[submodule "Common/edk2"]
+	path = Common/edk2
+	url = https://github.com/tianocore/edk2

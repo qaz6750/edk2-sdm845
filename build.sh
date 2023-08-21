@@ -165,15 +165,16 @@ done
 if "${DISTCLEAN}";then _distclean;exit "$?";fi
 if "${CLEAN}";then _clean;exit "$?";fi
 [ -z "${DEVICE}" ]&&_help 1
-if ! [ -f edk2/edksetup.sh ] && ! [ -f ../edk2/edksetup.sh ]
+if ! [ -f Common/edk2/edksetup.sh ] && ! [ -f ../edk2/edksetup.sh ]
 then	set -e
 	echo "Updating submodules"
 	if "${CHINESE}"
-	then	git submodule set-url edk2                         https://hub.fastgit.xyz/tianocore/edk2.git
+	then	
+		git submodule set-url Common/edk2                  https://hub.fastgit.xyz/tianocore/edk2.git
 		git submodule set-url edk2-platforms               https://hub.fastgit.xyz/tianocore/edk2-platforms.git
 		git submodule set-url sdm845Pkg/Library/SimpleInit https://hub.fastgit.xyz/BigfootACA/simple-init.git
 		git submodule init;git submodule update --depth 1
-		pushd edk2
+		pushd Common/edk2
 
 		git submodule set-url ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3   https://hub.fastgit.xyz/ucb-bar/berkeley-softfloat-3.git
 		git submodule set-url CryptoPkg/Library/OpensslLib/openssl                  https://hub.fastgit.xyz/openssl/openssl.git
@@ -193,7 +194,7 @@ then	set -e
 		popd
 		git checkout .gitmodules
 	else	git submodule init;git submodule update --depth 1
-		pushd edk2
+		pushd Common/edk2
 		git submodule init;git submodule update
 		popd
 		pushd sdm845Pkg/Library/SimpleInit
@@ -202,7 +203,7 @@ then	set -e
 	fi
 	set +e
 fi
-for i in "${EDK2}" ./edk2 ../edk2
+for i in "${EDK2}" ./Common/edk2 ../edk2
 do	if [ -n "${i}" ]&&[ -f "${i}/edksetup.sh" ]
 	then	_EDK2="$(realpath "${i}")"
 		break
